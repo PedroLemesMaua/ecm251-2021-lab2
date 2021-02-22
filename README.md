@@ -2,7 +2,8 @@
 Repositório criado para a disciplina Linguagens l.
 
 # Desenvolvedor(a):
-##  Pedro Henrique de Freitas Lemes 
+- Pedro Henrique de Freitas Lemes 
+
 
 # Linguagens e Frameworks:
 - Java
