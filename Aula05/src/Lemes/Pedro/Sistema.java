@@ -31,6 +31,33 @@ public class Sistema {
                 this.conta.depositar(valorParaDepositar);
                 System.out.println(("Operação realizada com sucesso!"));
                 break;
+            case 3:
+                System.out.println("Informe o valor para sacar:");
+                double valorParaSacar = scanner.nextDouble();
+                if(this.conta.sacar(valorParaSacar)){
+                    System.out.println("Operação realizada com sucesso");
+                } else{
+                    System.out.println(("Algo de errado aconteceu: Saldo"));
+                }
+                break;
+            case 5:
+                System.out.println("Nome do título a pagar:");
+                String nomeTitulo = scanner.next();
+                System.out.println("Valor do título:");
+                double valorTitulo = scanner.nextDouble();
+                System.out.println("Valor do juros por dia:");
+                double valorJurosPorDia = scanner.nextDouble();
+                System.out.println("Informe a data de vencimento (aaaa-mm-dd):");
+                String dataVencimentoTitulo = scanner.next();
+                Título titulo = new Título(valorTitulo, nomeTitulo, valorJurosPorDia, dataVencimentoTitulo);
+                if(this.conta.sacar(titulo.getValorPagamento())){
+                    System.out.println("Operação Realizada com Sucesso!");
+                } else {
+                    System.out.println("Não foi possível realizar a operação");
+                }
+                break;
+
+
             default:
                 System.out.println("Opção ainda não implementada!");
                 break;
