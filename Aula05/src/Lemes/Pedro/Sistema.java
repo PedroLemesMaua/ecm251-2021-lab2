@@ -11,6 +11,19 @@ public class Sistema {
         while(executarSistema){
             exibirMenu();
             opcao = scanner.nextInt();
+            avaliarOpcao(opcao);
+        }
+    }
+
+    private void avaliarOpcao(int opcao) {
+        switch (opcao){
+            case 0:
+                System.out.println("Obrigado por ter utilizado o Sistema!");
+                this.executarSistema = false;
+                break;
+            default:
+                System.out.println("Opção ainda não implementada!");
+                break;
         }
     }
 
