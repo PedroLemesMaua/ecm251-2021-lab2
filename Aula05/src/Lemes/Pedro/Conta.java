@@ -2,15 +2,21 @@ package Lemes.Pedro;
 
 public class Conta {
     //Atributos
-    Cliente cliente;
-    int numero;
-    double saldo;
+    private Cliente cliente;
+    private int numero;
+    private double saldo;
 
     //Métodos
-    void visualizarSaldo() {
-        double saldo = 50;
-        System.out.println("Valor do saldo: R$" + this.saldo);
-        saldo = this.saldo;
+    public Conta(String cliente, int numero, double saldo) {
+        this.cliente = new Cliente(cliente);
+        this.numero = numero;
+        this.saldo = saldo;
+    }
+
+    public double getSaldo() {
+        return this.saldo;
+        // System.out.println("Valor do saldo: R$" + this.saldo);
+        // saldo = this.saldo;
         //while(saldo > 0) {
         //    System.out.println("Saldo:"+saldo);
          //   saldo = saldo - 10;
@@ -18,7 +24,7 @@ public class Conta {
         //System.out.println("Valor do saldo: R$" + this.saldo);
     }
 
-    boolean sacar(double valor) {
+    public boolean sacar(double valor) {
         if (this.saldo >= valor) {
             this.saldo -= valor;
             return true;
@@ -26,12 +32,12 @@ public class Conta {
         return false;
     }
 
-    void depositar(double valor) {
+    public void depositar(double valor) {
         //this.saldo = this.saldo + valor;
         this.saldo +=valor;
     }
 
-    boolean transferirDinheiro(Conta destino, double valor) {
+    public boolean transferirDinheiro(Conta destino, double valor) {
         if(this.sacar(valor)){
             destino.depositar(valor);
             return true;
