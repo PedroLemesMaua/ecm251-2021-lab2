@@ -1,5 +1,7 @@
 package Lemes.Pedro;
 
+import java.util.Random;
+
 public class Conta {
     //Atributos
     private Cliente cliente;
@@ -23,6 +25,10 @@ public class Conta {
             return true;
         }
         return false;
+    }
+    private static int getRandomNumberInRange(int min, int max) {
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
     }
 
     public void depositar(double valor) {
