@@ -23,42 +23,24 @@ public class Sistema {
                 this.executarSistema = false;
                 break;
             case 1:
-                System.out.println("Saldo: R$" +this.conta.getSaldo());
+                System.out.println("Saldo: R$" + this.conta.getSaldo());
                 break;
             case 2:
-                System.out.println("Informe o valor para depositar:");
+                System.out.println("Informe um valor para depositar:");
                 double valorParaDepositar = scanner.nextDouble();
                 this.conta.depositar(valorParaDepositar);
-                System.out.println(("Operação realizada com sucesso!"));
+                System.out.println("Operação realizada com sucesso!");
                 break;
             case 3:
                 System.out.println("Informe o valor para sacar:");
                 double valorParaSacar = scanner.nextDouble();
                 if(this.conta.sacar(valorParaSacar)){
-                    System.out.println("Operação realizada com sucesso");
-                } else{
-                    System.out.println(("Algo de errado aconteceu: Saldo"));
-                }
-                break;
-            case 5:
-                System.out.println("Nome do título a pagar:");
-                String nomeTitulo = scanner.next();
-                System.out.println("Valor do título:");
-                double valorTitulo = scanner.nextDouble();
-                System.out.println("Valor do juros por dia:");
-                double valorJurosPorDia = scanner.nextDouble();
-                System.out.println("Informe a data de vencimento (aaaa-mm-dd):");
-                String dataVencimentoTitulo = scanner.next();
-                Título titulo = new Título(valorTitulo, nomeTitulo, valorJurosPorDia, dataVencimentoTitulo);
-                if(this.conta.sacar(titulo.getValorPagamento())){
-                    System.out.println("Operação Realizada com Sucesso!");
+                    System.out.println("Operação realizada com Sucesso!");
                 } else {
-                    System.out.println("Não foi possível realizar a operação");
+                    System.out.println("Algo de errado acontceu: Saldo");
                 }
                 break;
-
-
-            default:
+           default:
                 System.out.println("Opção ainda não implementada!");
                 break;
         }
@@ -67,7 +49,7 @@ public class Sistema {
     public Sistema() {
         this.executarSistema = true;
         this.scanner = new Scanner(System.in);  //Cria um scanner para o teclado (entrada padrão)
-        this.conta = new Conta("Luigi",1235,1000);
+        this.conta = new Conta("Luigi",1235, 1000);
     }
 
     private void exibirMenu() {
@@ -76,7 +58,7 @@ public class Sistema {
         System.out.println("2 - Depositar dinheiro");
         System.out.println("3 - Sacar dinheiro");
         System.out.println("4 - Transferir dinheiro");
-        System.out.println("5 - Pagar conta(título)");
+        System.out.println("5 - Pagar conta (título)");
         System.out.println("0 - Encerrar Sistema");
     }
 }

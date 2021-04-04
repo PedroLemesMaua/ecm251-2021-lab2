@@ -15,17 +15,10 @@ public class Conta {
 
     public double getSaldo() {
         return this.saldo;
-        // System.out.println("Valor do saldo: R$" + this.saldo);
-        // saldo = this.saldo;
-        //while(saldo > 0) {
-        //    System.out.println("Saldo:"+saldo);
-         //   saldo = saldo - 10;
-        //}
-        //System.out.println("Valor do saldo: R$" + this.saldo);
     }
 
     public boolean sacar(double valor) {
-        if (this.saldo >= valor) {
+        if( this.saldo >= valor){
             this.saldo -= valor;
             return true;
         }
@@ -33,11 +26,11 @@ public class Conta {
     }
 
     public void depositar(double valor) {
-        //this.saldo = this.saldo + valor;
-        this.saldo +=valor;
+//        this.saldo = this.saldo + valor;
+        this.saldo += valor;
     }
 
-    public boolean transferirDinheiro(Conta destino, double valor) {
+    public boolean transferirDinheiro(Conta destino, double valor){
         if(this.sacar(valor)){
             destino.depositar(valor);
             return true;
